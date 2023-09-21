@@ -1,14 +1,17 @@
-# app-setup-vue-3
+# Vue 3 Setup
 
 This template should help get you started developing with Vue 3 in Vite.
 
-## Recommended IDE Setup
+If you need a backend, check this out [express-setup-v2](https://gitlab.com/mtaufiikh/express-setup-v2).
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Customize configuration
+## Official Documentation
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Documentation Framework [VueJs](https://vuejs.org/guide/introduction.html).
+
+Documentation State Management [Pinia](https://pinia.vuejs.org/introduction.html).
+
+Documentation Http Client [Axios](https://axios-http.com/docs/intro).
 
 ## Project Setup
 
@@ -27,3 +30,9 @@ npm run dev
 ```sh
 npm run build
 ```
+
+
+
+#### Enjoy coding
+
+### Created with ❤️
