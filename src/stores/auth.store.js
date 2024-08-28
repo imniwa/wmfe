@@ -21,21 +21,21 @@ export const useAuthStore = defineStore({
 
                 localStorage.setItem('user', JSON.stringify(user.data));
 
-                router.push('/');
+                router.go('/');
             }
         },
         async register(data) {
             let register = await axiosWrapper.post(`${baseUrl}/register`, data, true);
 
             if (register) {
-                router.push('/login');
+                router.go('/login');
             }
         },
         async logout() {
             this.user = null;
 
             localStorage.removeItem('user');
-            router.push('/login');
+            router.go('/login');
 
             getActivePinia()._s.forEach(store => store.$reset());
         }

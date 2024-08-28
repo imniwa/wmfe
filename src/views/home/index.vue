@@ -1,23 +1,48 @@
 <template>
-  <h1 class="font-semibold text-lg">Home Page</h1>
-  <h1>{{ counterStore.count }}</h1>
-  <button class="bg-blue-400 p-2 rounded-md text-white hover:bg-blue-500"
-    @click="counterStore.increment()">Increment</button>
-  <button class="bg-blue-400 p-2 rounded-md text-white hover:bg-blue-500 ml-1"
-    @click="counterStore.decrement()">Decrement</button>
+  <div class="w-full grid grid-cols-5 gap-10" v-if="productStore.products.length > 0">
+    <ProductCard v-for="product in productStore.products" :key="product.id" :product="product" @delete="deleteProduct" @add2cart="addProduct2Cart"/>
+  </div>
+  <div class="text-center" v-if="productStore.products.length === 0">
+    <p>No Product.</p>
+  </div>
 </template>
-
 <script>
-  import {
-    useCounterStore
-  } from "@/stores/counter.store.js"
+import {
+  useProductStore
+} from "@/stores/product.store";
+import {
+  useCartStore
+} from "@/stores/cart.store";
 
-  export default {
-    data() {
-      return {
-        counterStore: useCounterStore()
+export default {
+  name: 'ProductList',
+  setup() {
+    const productStore = useProductStore();
+    productStore.sync();
+    const cartStore = useCartStore();
+    return {
+      productStore,
+      cartStore
+    }
+  },
+  methods: {
+    deleteProduct(product_id) {
+      this.productStore.delete(product_id);
+    },
+    addProduct2Cart(product_id) {
+      this.cartStore.add2cart(product_id);
+    }
+  },
+  watch: {
+    '$route'() {
+      let category_id = this.$router.currentRoute.value.query.category_id;
+      if (category_id) {
+        this.productStore.sync(category_id);
+      } else {
+        this.productStore.sync();
       }
     }
   }
+}
 
 </script>

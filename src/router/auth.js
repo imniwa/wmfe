@@ -1,26 +1,24 @@
-import LoginView from '@/views/auth/login/index.vue'
-import RegisterView from '@/views/auth/register/index.vue'
-
-import ExampleLayout from '@/layouts/ExampleLayout.vue';
-
+import AuthLayout from '@/layouts/AuthLayout.vue';
 // middleware
 import GuestMiddleware from '@/middleware/guest.middleware.js';
 
 export default [{
     path: '/login',
     name: 'login',
-    component: LoginView,
+    component: () => import('@/views/auth/login/index.vue'),
     meta: {
       title: 'Login',
+      layout: AuthLayout,
       middleware: [GuestMiddleware],
     },
   },
   {
     path: '/register',
     name: 'register',
-    component: RegisterView,
+    component: () => import('@/views/auth/register/index.vue'),
     meta: {
       title: 'Register',
+      layout: AuthLayout,
       middleware: [GuestMiddleware],
     },
   }

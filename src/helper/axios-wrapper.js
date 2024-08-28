@@ -33,6 +33,7 @@ function request(method) {
           toast(response.data.message, {
             autoClose: 2000,
             type: 'success',
+            theme: 'colored',
             position: toast.POSITION.BOTTOM_RIGHT,
           });
         }
@@ -87,6 +88,7 @@ function errorHandler(error) {
   toast(message, {
     autoClose: 2000,
     type: 'error',
+    theme: 'colored',
     position: toast.POSITION.BOTTOM_RIGHT,
   });
 

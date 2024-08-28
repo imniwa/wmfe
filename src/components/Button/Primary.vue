@@ -1,5 +1,5 @@
 <template>
-  <button class="bg-blue-400 p-2 rounded-md text-white hover:bg-blue-500" :type="type">
+  <button :class="`${className} bg-primary px-6 py-2 text-sm rounded-sm text-white`" :type="type">
     <slot/>
   </button>
 </template>
@@ -10,6 +10,9 @@ export default {
     type: {
       type: String,
       default: 'button',
+    },
+    className: {
+      type: String,
     },
   }
 }

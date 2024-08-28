@@ -1,5 +1,5 @@
 <template>
-  <button class="bg-red-400 p-2 rounded-md text-white hover:bg-red-500" :type="type">
+  <button class="bg-red-400 px-6 py-2 text-sm rounded-sm text-white hover:bg-red-500" :type="type">
     <slot/>
   </button>
 </template>

@@ -3,8 +3,11 @@ import middlewarePipeline from '@/middleware/middlewarePipeline.js';
 
 import main from './main';
 import auth from './auth';
+import cart from './cart';
+import category from './category';
+import product from './product';
 
-const arr_routes = [main, auth];
+const arr_routes = [main, auth, cart, category, product];
 
 const routes = arr_routes.flat(1);
 
@@ -17,7 +20,7 @@ router.beforeEach((to, from, next) => {
   document.title = ''
 
   if(to.meta.title){
-    document.title = to.meta.title + ' · Vue 3';
+    document.title = to.meta.title + ' · MAS POS';
   }
 
   if (!to.meta.middleware) {
